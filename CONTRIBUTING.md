@@ -9,7 +9,7 @@ If you are working on a new feature, please create an issue on GitHub first. Thi
 You can clone the repo by running the following command:
 
 ```bash
-git clone git@github.com:manchenkoff/nuxt-laravel-precognition-forms.git
+git clone git@github.com:manchenkoff/nuxt-sanctum-precognition.git
 ```
 
 Then you should create a new branch with the following name convention:

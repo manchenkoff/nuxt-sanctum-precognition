@@ -34,7 +34,7 @@ A clear and concise description of what actually happened.
 ```typescript
 // REPLACE WITH YOUR FILE CONTENT!
 export default defineNuxtConfig({
-    modules: ['nuxt-laravel-precognition-forms'],
+    modules: ['nuxt-sanctum-precognition'],
 
     precognition: {
         // REPLACE WITH YOUR CONFIG!

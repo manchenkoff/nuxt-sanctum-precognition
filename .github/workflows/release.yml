@@ -9,7 +9,7 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # pass token to generate changelog
 
 concurrency:
-  group: nuxt-laravel-precognition-forms-release
+  group: nuxt-sanctum-precognition-release
   cancel-in-progress: false
 
 permissions:

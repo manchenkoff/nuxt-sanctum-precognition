@@ -1,9 +1,9 @@
 {
-  "name": "nuxt-laravel-precognition-forms",
+  "name": "nuxt-sanctum-precognition",
   "version": "1.0.0",
   "description": "Nuxt module for Laravel Precognition integration",
-  "homepage": "https://manchenkoff.gitbook.io/nuxt-laravel-precognition-forms/",
-  "repository": "manchenkoff/nuxt-laravel-precognition-forms",
+  "homepage": "https://manchenkoff.gitbook.io/nuxt-sanctum-precognition/",
+  "repository": "manchenkoff/nuxt-sanctum-precognition",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -44,6 +44,7 @@
     "changelogen": "^0.5.7",
     "eslint": "^9.18.0",
     "nuxt": "^3.15.2",
+    "nuxt-auth-sanctum": "^0.5.4",
     "typescript": "~5.7.3",
     "vitest": "^3.0.2",
     "vue-tsc": "^2.2.0"

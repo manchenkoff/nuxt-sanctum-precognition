@@ -1,9 +1,9 @@
-import { defineNuxtModule, addPlugin, createResolver, useLogger, addImportsDir } from '@nuxt/kit'
+import { defineNuxtModule, addPlugin, createResolver, useLogger, addImportsDir, installModule } from '@nuxt/kit'
 import defu from 'defu'
 import type { ModuleOptions } from './runtime/types'
 import { defaultModuleOptions } from './config'
 
-const MODULE_NAME = 'nuxt-laravel-precognition-forms'
+const MODULE_NAME = 'nuxt-sanctum-precognition'
 
 export type ModulePublicRuntimeConfig = { precognition: ModuleOptions }
 
@@ -15,7 +15,7 @@ export default defineNuxtModule<ModuleOptions>({
 
   defaults: defaultModuleOptions,
 
-  setup(_options, _nuxt) {
+  async setup(_options, _nuxt) {
     const resolver = createResolver(import.meta.url)
     const precognitionConfig = defu(
       _nuxt.options.runtimeConfig.public.precognition,
@@ -32,6 +32,6 @@ export default defineNuxtModule<ModuleOptions>({
     addPlugin(resolver.resolve('./runtime/plugin'))
     addImportsDir(resolver.resolve('./runtime/composables'))
 
-    logger.info('Precognition module initialized')
+    logger.info('Precognition module initialized with Sanctum')
   },
 })

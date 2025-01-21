@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "nuxt-laravel-precognition-forms-playground",
+  "name": "nuxt-sanctum-precognition-playground",
   "type": "module",
   "scripts": {
     "dev": "nuxi dev",
