@@ -29,6 +29,8 @@ export default defineNuxtModule<ModuleOptions>({
       level: precognitionConfig.logLevel,
     })
 
+    await installModule('nuxt-auth-sanctum')
+
     addPlugin(resolver.resolve('./runtime/plugin'))
     addImportsDir(resolver.resolve('./runtime/composables'))
 
