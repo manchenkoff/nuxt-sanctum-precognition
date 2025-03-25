@@ -5,16 +5,20 @@
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
-Nuxt module for Laravel Precognition integration for doing amazing things.
+This module provides an easy way to incorporate the Laravel Precognition validation approach into 
+your project and leverage all the benefits of our existing module - [nuxt-auth-sanctum](https://manchenkoff.gitbook.io/nuxt-auth-sanctum).
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
 - [📖 &nbsp;Documentation](https://manchenkoff.gitbook.io/nuxt-sanctum-precognition/)
 
 ## Features
 
-- Foo
-- Bar
-- Baz
+- Sanctum-based client (see [nuxt-auth-sanctum](https://manchenkoff.gitbook.io/nuxt-auth-sanctum) module)
+- Automatic handling of Precognition headers
+- Seamless work with Laravel validation errors
+- Easy to migrate from Laravel Precognition Vue package
+- TypeScript support
+- Predefined configuration
 
 ## Quick Setup
 
