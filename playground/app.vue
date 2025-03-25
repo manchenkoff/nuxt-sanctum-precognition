@@ -63,7 +63,7 @@ async function submit() {
         @blur="form.touch('email')"
       >
       <div v-if="form.invalid('email')">
-        Error: {{ form.errors.value.email }}
+        Error: {{ form.errors.email }}
       </div>
       <button
         @click="form.reset('email')"
@@ -84,7 +84,7 @@ async function submit() {
         @blur="form.touch('password')"
       >
       <div v-if="form.invalid('password')">
-        Error: {{ form.errors.value.password }}
+        Error: {{ form.errors.password }}
       </div>
       <button
         @click="form.reset('password')"

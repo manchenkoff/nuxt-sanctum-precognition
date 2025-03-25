@@ -11,14 +11,14 @@ import type {
   ValidationOptions,
 } from '../types'
 import { usePrecognitionConfig } from '../composables/usePrecognitionConfig'
+import {
+  CONTENT_TYPE_HEADER,
+  PRECOGNITION_HEADER,
+  PRECOGNITION_ONLY_HEADER,
+  PRECOGNITION_SUCCESS_HEADER,
+} from '../utils/constants'
+import { clearFiles, hasFiles } from '../utils/files'
 import { useSanctumClient } from '#imports'
-
-// TODO: move constants to a separate file
-const
-  PRECOGNITION_HEADER = 'Precognition',
-  PRECOGNITION_ONLY_HEADER = 'Precognition-Validate-Only',
-  PRECOGNITION_SUCCESS_HEADER = 'Precognition-Success',
-  CONTENT_TYPE_HEADER = 'Content-Type'
 
 export const usePrecognitionForm = <T extends Payload>(
   method: RequestMethod,
@@ -29,6 +29,7 @@ export const usePrecognitionForm = <T extends Payload>(
   const _originalPayloadKeys: PayloadKey<T>[] = Object.keys(_originalPayload)
 
   const _payload = reactive<T>(payload)
+  const _errors = reactive<PayloadErrors<T>>({})
 
   const _validated = ref<PayloadKey<T>[]>([]) as Ref<PayloadKey<T>[]>
   const _touched = ref<PayloadKey<T>[]>([]) as Ref<PayloadKey<T>[]>
@@ -36,55 +37,7 @@ export const usePrecognitionForm = <T extends Payload>(
   const _config = usePrecognitionConfig()
   const _client = useSanctumClient()
 
-  // TODO: move files-related functions to a separate file
-  const isFile = (value: unknown): boolean => (typeof File !== 'undefined' && value instanceof File)
-    || value instanceof Blob
-    || (typeof FileList !== 'undefined' && value instanceof FileList && value.length > 0)
-
-  const hasFiles = (data: unknown): boolean => isFile(data)
-    || (typeof data === 'object' && data !== null && Object.values(data).some(value => hasFiles(value)))
-
-  const clearFiles = <T extends Payload>(data: T): T => {
-    let newData = { ...data }
-
-    Object
-      .keys(newData)
-      .forEach((name) => {
-        const value = newData[name]
-
-        if (value === null) {
-          return
-        }
-
-        // drop the file from the payload
-        if (isFile(value)) {
-          const { [name]: _, ...fields } = newData
-          newData = fields as T
-
-          return
-        }
-
-        // recursively clear files from nested arrays
-        if (Array.isArray(value)) {
-          // @ts-expect-error: assign property value on reactive object
-          newData[name] = Object.values(clearFiles({ ...value }))
-
-          return
-        }
-
-        // recursively clear files from nested objects
-        if (typeof value === 'object') {
-          // @ts-expect-error: assign property value on reactive object
-          newData[name] = clearFiles(newData[name])
-
-          return
-        }
-      })
-
-    return newData
-  }
-
-  // TODO: move process function to a separate file
+  // TODO: refactor and decompose this function (separate current state and arguments)
   async function process(params: { precognitive: boolean, fields: PayloadKey<T>[], options?: ValidationOptions } = { precognitive: false, fields: [], options: {} }): Promise<ResponseType> {
     let payload = form.data()
 
@@ -157,15 +110,15 @@ export const usePrecognitionForm = <T extends Payload>(
 
   const form: PrecognitionForm<T> = {
     fields: _payload,
-    errors: ref<PayloadErrors<T>>({}) as Ref<PayloadErrors<T>>, // TODO: use reactive object
+    errors: _errors,
 
     processing: ref(false),
     validating: ref(false),
-    hasErrors: computed(() => Object.keys(form.errors.value).length > 0),
+    hasErrors: computed(() => Object.keys(form.errors).length > 0),
 
     touched: (name: PayloadKey<T>): boolean => _touched.value.includes(name),
     valid: (name: PayloadKey<T>): boolean => _validated.value.includes(name) && !form.invalid(name),
-    invalid: (name: PayloadKey<T>): boolean => typeof form.errors.value[name] !== 'undefined',
+    invalid: (name: PayloadKey<T>): boolean => typeof (form.errors as PayloadErrors<T>)[name] !== 'undefined',
 
     data(): T {
       return toRaw(_payload) as T
@@ -234,8 +187,8 @@ export const usePrecognitionForm = <T extends Payload>(
     },
 
     setErrors(entries: PayloadErrors<T>): PrecognitionForm<T> {
-      if (!isEqual(form.errors.value, entries)) {
-        form.errors.value = entries
+      if (!isEqual(form.errors, entries)) {
+        form.errors = reactive(entries)
       }
 
       return form
@@ -245,7 +198,7 @@ export const usePrecognitionForm = <T extends Payload>(
       const {
         [name]: _,
         ...newErrors
-      } = form.errors.value
+      } = form.errors as PayloadErrors<T>
 
       return form.setErrors(newErrors as PayloadErrors<T>)
     },

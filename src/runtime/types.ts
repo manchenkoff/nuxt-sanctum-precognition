@@ -45,7 +45,7 @@ export type ValidationOptions = {
 
 export interface PrecognitionForm<T extends Payload> {
   fields: Reactive<T>
-  errors: Ref<PayloadErrors<T>>
+  errors: Reactive<PayloadErrors<T>>
 
   processing: Ref<boolean>
   validating: Ref<boolean>
