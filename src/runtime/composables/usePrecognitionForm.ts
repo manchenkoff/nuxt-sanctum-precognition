@@ -20,6 +20,7 @@ import {
 import { clearFiles, hasFiles } from '../utils/files'
 import { useSanctumClient } from '#imports'
 
+// TODO: implement a Nuxt UI compatible version of this composable (via decorator?)
 export const usePrecognitionForm = <T extends Payload>(
   method: RequestMethod,
   url: string,
@@ -39,6 +40,7 @@ export const usePrecognitionForm = <T extends Payload>(
 
   // TODO: refactor and decompose this function (separate current state and arguments)
   async function process(params: { precognitive: boolean, fields: PayloadKey<T>[], options?: ValidationOptions } = { precognitive: false, fields: [], options: {} }): Promise<ResponseType> {
+    // TODO: use object-form-encoder (and test with files attached)
     let payload = form.data()
 
     const headers = new Headers()
@@ -49,9 +51,11 @@ export const usePrecognitionForm = <T extends Payload>(
         headers.set(CONTENT_TYPE_HEADER, 'multipart/form-data')
       }
       else {
-        console.warn('Files were detected in the payload but will not be sent. '
-          + 'To include files, set `validateFiles` to `true` in the validation options or module config.')
-        payload = clearFiles(payload)
+        if (params.precognitive) {
+          console.warn('Files were detected in the payload but will not be sent. '
+            + 'To include files, set `validateFiles` to `true` in the validation options or module config.')
+          payload = clearFiles(payload)
+        }
       }
     }
 
