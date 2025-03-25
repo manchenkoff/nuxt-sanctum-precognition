@@ -13,6 +13,7 @@ import type {
 import { usePrecognitionConfig } from '../composables/usePrecognitionConfig'
 import { useSanctumClient } from '#imports'
 
+// TODO: move constants to a separate file
 const
   PRECOGNITION_HEADER = 'Precognition',
   PRECOGNITION_ONLY_HEADER = 'Precognition-Validate-Only',
@@ -35,6 +36,7 @@ export const usePrecognitionForm = <T extends Payload>(
   const _config = usePrecognitionConfig()
   const _client = useSanctumClient()
 
+  // TODO: move files-related functions to a separate file
   const isFile = (value: unknown): boolean => (typeof File !== 'undefined' && value instanceof File)
     || value instanceof Blob
     || (typeof FileList !== 'undefined' && value instanceof FileList && value.length > 0)
@@ -82,6 +84,7 @@ export const usePrecognitionForm = <T extends Payload>(
     return newData
   }
 
+  // TODO: move process function to a separate file
   async function process(params: { precognitive: boolean, fields: PayloadKey<T>[], options?: ValidationOptions } = { precognitive: false, fields: [], options: {} }): Promise<ResponseType> {
     let payload = form.data()
 
@@ -154,7 +157,7 @@ export const usePrecognitionForm = <T extends Payload>(
 
   const form: PrecognitionForm<T> = {
     fields: _payload,
-    errors: ref<PayloadErrors<T>>({}) as Ref<PayloadErrors<T>>,
+    errors: ref<PayloadErrors<T>>({}) as Ref<PayloadErrors<T>>, // TODO: use reactive object
 
     processing: ref(false),
     validating: ref(false),
