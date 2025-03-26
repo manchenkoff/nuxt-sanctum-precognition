@@ -50,7 +50,6 @@ export const usePrecognitionForm = <T extends Payload>(
   const _config = usePrecognitionConfig()
   const _client = useSanctumClient()
 
-  // TODO: refactor and decompose this function (separate current state and arguments)
   async function process(params: FormProcessParams<T> = {
     precognitive: false,
     fields: [],
