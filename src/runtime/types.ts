@@ -1,4 +1,3 @@
-import type { ComputedRef, Reactive, Ref } from 'vue'
 import type { FetchResponse } from 'ofetch'
 
 export interface ModuleOptions {
@@ -88,24 +87,24 @@ export interface PrecognitionForm<T extends Payload> {
   /**
    * Values of the form fields.
    */
-  fields: Reactive<T>
+  fields: T
   /**
    * Errors for each form field.
    */
-  errors: Reactive<PayloadErrors<T>>
+  errors: PayloadErrors<T>
 
   /**
    * Whether the form is currently processing a submission request.
    */
-  processing: Ref<boolean>
+  processing: boolean
   /**
    * Whether the form is currently validating the fields.
    */
-  validating: Ref<boolean>
+  validating: boolean
   /**
    * Whether the form has any errors.
    */
-  hasErrors: ComputedRef<boolean>
+  hasErrors: boolean
 
   /**
    * Checks if a form field has been touched.

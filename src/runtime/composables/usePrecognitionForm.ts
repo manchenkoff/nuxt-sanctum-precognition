@@ -44,9 +44,6 @@ export const usePrecognitionForm = <T extends Payload>(
   const _originalPayload: T = cloneDeep(payload)
   const _originalPayloadKeys: PayloadKey<T>[] = Object.keys(_originalPayload)
 
-  const _payload = reactive<T>(payload)
-  const _errors = reactive<PayloadErrors<T>>({})
-
   const _validated = ref<PayloadKey<T>[]>([]) as Ref<PayloadKey<T>[]>
   const _touched = ref<PayloadKey<T>[]>([]) as Ref<PayloadKey<T>[]>
 
@@ -131,21 +128,20 @@ export const usePrecognitionForm = <T extends Payload>(
     return Promise.reject(response)
   }
 
-  const form: PrecognitionForm<T> = {
-    fields: _payload,
-    errors: _errors,
+  const form = reactive({
+    fields: payload,
+    errors: {},
 
-    // TODO: make them accessible without '.value', use reactive() & PrecognitionForm<T> on the 'form' object
-    processing: ref(false),
-    validating: ref(false),
-    hasErrors: computed(() => Object.keys(form.errors).length > 0),
+    processing: false,
+    validating: false,
+    hasErrors: computed(() => Object.keys(form.errors).length > 0) as unknown as boolean,
 
     touched: (name: PayloadKey<T>): boolean => _touched.value.includes(name),
     valid: (name: PayloadKey<T>): boolean => _validated.value.includes(name) && !form.invalid(name),
-    invalid: (name: PayloadKey<T>): boolean => typeof (form.errors as PayloadErrors<T>)[name] !== 'undefined',
+    invalid: (name: PayloadKey<T>): boolean => typeof form.errors[name] !== 'undefined',
 
     data(): T {
-      return toRaw(_payload) as T
+      return toRaw(form.fields) as T
     },
 
     setData(data: PayloadData<T>): PrecognitionForm<T> {
@@ -153,7 +149,7 @@ export const usePrecognitionForm = <T extends Payload>(
         .keys(data)
         .forEach((key: PayloadKey<T>) => {
           // @ts-expect-error: assign property value on reactive object
-          _payload[key] = data[key]
+          form.fields[key] = data[key]
         })
 
       return form
@@ -179,7 +175,7 @@ export const usePrecognitionForm = <T extends Payload>(
     reset(...keys: PayloadKey<T>[]): PrecognitionForm<T> {
       const resetField = (fieldName: string) => {
         // @ts-expect-error: assign property value on reactive object
-        _payload[fieldName] = _originalPayload[fieldName]
+        form.fields[fieldName] = _originalPayload[fieldName]
         form.forgetError(fieldName)
       }
 
@@ -212,7 +208,7 @@ export const usePrecognitionForm = <T extends Payload>(
 
     setErrors(entries: PayloadErrors<T>): PrecognitionForm<T> {
       if (!isEqual(form.errors, entries)) {
-        form.errors = reactive(entries)
+        form.errors = entries
       }
 
       return form
@@ -234,7 +230,7 @@ export const usePrecognitionForm = <T extends Payload>(
 
       const fields = Array.isArray(name) ? name : [name]
 
-      form.validating.value = true
+      form.validating = true
 
       process({ precognitive: true, fields, options })
         .then((response: ResponseType) => {
@@ -260,18 +256,18 @@ export const usePrecognitionForm = <T extends Payload>(
 
           options.onError(response)
         })
-        .finally(() => form.validating.value = false)
+        .finally(() => form.validating = false)
 
       return form
     },
 
     async submit(): Promise<ResponseType> {
-      form.processing.value = true
+      form.processing = true
 
       return await process()
-        .finally(() => form.processing.value = false)
+        .finally(() => form.processing = false)
     },
-  }
+  }) as PrecognitionForm<T>
 
   form.validate = debounce(form.validate, _config.validationTimeout) as typeof form.validate
 
