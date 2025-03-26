@@ -15,8 +15,11 @@ importers:
         specifier: ^6.1.4
         version: 6.1.4
       nuxt-auth-sanctum:
-        specifier: ^0.6.0
-        version: 0.6.0
+        specifier: ^0.6.1
+        version: 0.6.1
+      object-form-encoder:
+        specifier: ^0.0.6
+        version: 0.0.6
     devDependencies:
       '@nuxt/devtools':
         specifier: ^2.3.1
@@ -2678,8 +2681,8 @@ packages:
     engines: {node: ^16.10.0 || >=18.0.0}
     hasBin: true
 
-  nuxt-auth-sanctum@0.6.0:
-    resolution: {integrity: sha512-QtDce573Xap27s5sgYrsRMa9GGaNwbIRO7ig9XkNb/dwHGK0Hj12rydaxCVilOiy2P4+6VN49/6RnYfnXr7blQ==}
+  nuxt-auth-sanctum@0.6.1:
+    resolution: {integrity: sha512-P81t7ClPJmT3ZMHeRpQfxaEk1MY+hUBAFF/uwk8Rg3yg9vIZrRtbrQlHNk+gKy4ql5zQ5N2Gnp0pXdQaPIP4hw==}
 
   nuxt@3.16.1:
     resolution: {integrity: sha512-V0odAW9Yo8s58yGnSy0RuX+rQwz0wtQp3eOgMTsh1YDDZdIIYZmAlZaLypNeieO/mbmvOOUcnuRyIGIRrF4+5A==}
@@ -2698,6 +2701,9 @@ packages:
     resolution: {integrity: sha512-mn8wBFV9G9+UFHIrq+pZ2r2zL4aPau/by3kJb3cM7+5tQHMt6HGQB8FDIeKFYp8o0D2pnH6nVsO88N4AmUxIWg==}
     engines: {node: ^14.16.0 || >=16.10.0}
     hasBin: true
+
+  object-form-encoder@0.0.6:
+    resolution: {integrity: sha512-QhFA7kVNF6DxUuu1mF0Awl16qpJuRj3aYJ99BivjDwoNAbbWXfYjSeDix8UENHRsLe8tXK1o7eucjALFUHFOkw==}
 
   ofetch@1.4.1:
     resolution: {integrity: sha512-QZj2DfGplQAr2oj9KzceK9Hwz6Whxazmn85yYeVuS3u9XTMOGMRx0kO95MQ+vLsj/S/NwBDMMLU5hpxvI6Tklw==}
@@ -6847,7 +6853,7 @@ snapshots:
 
   nuxi@3.23.1: {}
 
-  nuxt-auth-sanctum@0.6.0:
+  nuxt-auth-sanctum@0.6.1:
     dependencies:
       defu: 6.1.4
       ofetch: 1.4.1
@@ -6981,6 +6987,8 @@ snapshots:
       pathe: 2.0.3
       pkg-types: 2.1.0
       tinyexec: 0.3.2
+
+  object-form-encoder@0.0.6: {}
 
   ofetch@1.4.1:
     dependencies:

@@ -1,5 +1,6 @@
 import { computed, reactive, type Ref, ref, toRaw } from 'vue'
 import { cloneDeep, debounce, isEqual } from 'lodash'
+import { objectToFormData } from 'object-form-encoder'
 import type {
   Payload,
   PayloadData,
@@ -12,13 +13,20 @@ import type {
 } from '../types'
 import { usePrecognitionConfig } from '../composables/usePrecognitionConfig'
 import {
-  CONTENT_TYPE_HEADER,
   PRECOGNITION_HEADER,
   PRECOGNITION_ONLY_HEADER,
   PRECOGNITION_SUCCESS_HEADER,
+  STATUS_NO_CONTENT,
+  STATUS_VALIDATION_ERROR,
 } from '../utils/constants'
 import { clearFiles, hasFiles } from '../utils/files'
 import { useSanctumClient } from '#imports'
+
+type FormProcessParams<T extends Payload> = {
+  precognitive: boolean
+  fields: PayloadKey<T>[]
+  options?: ValidationOptions
+}
 
 // TODO: implement a Nuxt UI compatible version of this composable (via decorator?)
 export const usePrecognitionForm = <T extends Payload>(
@@ -39,23 +47,24 @@ export const usePrecognitionForm = <T extends Payload>(
   const _client = useSanctumClient()
 
   // TODO: refactor and decompose this function (separate current state and arguments)
-  async function process(params: { precognitive: boolean, fields: PayloadKey<T>[], options?: ValidationOptions } = { precognitive: false, fields: [], options: {} }): Promise<ResponseType> {
-    // TODO: use object-form-encoder (and test with files attached)
-    let payload = form.data()
+  async function process(params: FormProcessParams<T> = {
+    precognitive: false,
+    fields: [],
+    options: {},
+  }): Promise<ResponseType> {
+    let payload = form.data() as object
 
     const headers = new Headers()
     const includeFiles = params.options?.validateFiles ?? _config.validateFiles
 
     if (hasFiles(payload)) {
-      if (includeFiles) {
-        headers.set(CONTENT_TYPE_HEADER, 'multipart/form-data')
+      if (params.precognitive && !includeFiles) {
+        console.warn('Files were detected in the payload but will not be sent. '
+          + 'To include files, set `validateFiles` to `true` in the validation options or module config.')
+        payload = clearFiles(payload)
       }
       else {
-        if (params.precognitive) {
-          console.warn('Files were detected in the payload but will not be sent. '
-            + 'To include files, set `validateFiles` to `true` in the validation options or module config.')
-          payload = clearFiles(payload)
-        }
+        payload = objectToFormData(payload)
       }
     }
 
@@ -83,7 +92,10 @@ export const usePrecognitionForm = <T extends Payload>(
         console.warn('Did not receive a Precognition response. Ensure you have the Precognition middleware in place for the route.')
       }
 
-      if (response.status === 204 && response.headers.get(PRECOGNITION_SUCCESS_HEADER) === 'true') {
+      if (
+        response.status === STATUS_NO_CONTENT
+        && response.headers.get(PRECOGNITION_SUCCESS_HEADER) === 'true'
+      ) {
         if (params.fields.length > 0) {
           const validatedNew = new Set(_validated.value)
 
@@ -105,7 +117,7 @@ export const usePrecognitionForm = <T extends Payload>(
       return Promise.resolve(response)
     }
 
-    if (response.status === 422) {
+    if (response.status === STATUS_VALIDATION_ERROR) {
       form.setErrors(response._data.errors as PayloadErrors<T>)
     }
 
@@ -226,7 +238,7 @@ export const usePrecognitionForm = <T extends Payload>(
           options.onSuccess(response)
         })
         .catch((response: ResponseType) => {
-          if (response.status === 422) {
+          if (response.status === STATUS_VALIDATION_ERROR) {
             if (!options?.onValidationError) {
               return
             }

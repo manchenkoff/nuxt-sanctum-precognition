@@ -1,5 +1,3 @@
-import type { Payload } from '../types'
-
 export const isFile = (value: unknown): boolean => (typeof File !== 'undefined' && value instanceof File)
   || value instanceof Blob
   || (typeof FileList !== 'undefined' && value instanceof FileList && value.length > 0)
@@ -7,8 +5,8 @@ export const isFile = (value: unknown): boolean => (typeof File !== 'undefined' 
 export const hasFiles = (data: unknown): boolean => isFile(data)
   || (typeof data === 'object' && data !== null && Object.values(data).some(value => hasFiles(value)))
 
-export const clearFiles = <T extends Payload>(data: T): T => {
-  let newData = { ...data }
+export const clearFiles = (data: object): object => {
+  let newData = { ...data } as Record<string, unknown>
 
   Object
     .keys(newData)
@@ -22,14 +20,13 @@ export const clearFiles = <T extends Payload>(data: T): T => {
       // drop the file from the payload
       if (isFile(value)) {
         const { [name]: _, ...fields } = newData
-        newData = fields as T
+        newData = fields
 
         return
       }
 
       // recursively clear files from nested arrays
       if (Array.isArray(value)) {
-        // @ts-expect-error: assign property value on reactive object
         newData[name] = Object.values(clearFiles({ ...value }))
 
         return
