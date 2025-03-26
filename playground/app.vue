@@ -97,19 +97,19 @@ async function submit() {
 
     <div class="row">
       <button
-        :disabled="form.processing.value"
+        :disabled="form.processing"
         @click="submit"
       >
         Submit
       </button>
       <button
-        :disabled="form.validating.value"
+        :disabled="form.validating"
         @click="validate"
       >
         Validate
       </button>
       <button
-        :disabled="form.validating.value"
+        :disabled="form.validating"
         @click="form.validate(['email', 'password'])"
       >
         Validate Explicit
@@ -124,12 +124,12 @@ async function submit() {
 
     <div>
       <strong>Processing:</strong>
-      <pre>{{ form.processing.value }}</pre>
+      <pre>{{ form.processing }}</pre>
     </div>
 
     <div>
       <strong>Validating:</strong>
-      <pre>{{ form.validating.value }}</pre>
+      <pre>{{ form.validating }}</pre>
     </div>
 
     <div>
