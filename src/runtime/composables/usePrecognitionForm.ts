@@ -116,6 +116,7 @@ export const usePrecognitionForm = <T extends Payload>(
     fields: _payload,
     errors: _errors,
 
+    // TODO: make them accessible without '.value', use reactive() & PrecognitionForm<T> on the 'form' object
     processing: ref(false),
     validating: ref(false),
     hasErrors: computed(() => Object.keys(form.errors).length > 0),
