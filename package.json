@@ -1,6 +1,6 @@
 {
   "name": "nuxt-sanctum-precognition",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Nuxt module for Laravel Precognition integration",
   "homepage": "https://manchenkoff.gitbook.io/nuxt-sanctum-precognition/",
   "repository": "manchenkoff/nuxt-sanctum-precognition",
