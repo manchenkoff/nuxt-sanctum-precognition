@@ -29,6 +29,13 @@ type FormProcessParams<T extends Payload> = {
 }
 
 // TODO: implement a Nuxt UI compatible version of this composable (via decorator?)
+
+/**
+ * Creates a new Precognition form instance.
+ * @param method HTTP method
+ * @param url API endpoint
+ * @param payload Initial form data object
+ */
 export const usePrecognitionForm = <T extends Payload>(
   method: RequestMethod,
   url: string,

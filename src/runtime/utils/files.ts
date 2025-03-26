@@ -1,10 +1,22 @@
+/**
+ * Check if the given value is a File or a Blob.
+ * @param value
+ */
 export const isFile = (value: unknown): boolean => (typeof File !== 'undefined' && value instanceof File)
   || value instanceof Blob
   || (typeof FileList !== 'undefined' && value instanceof FileList && value.length > 0)
 
+/**
+ * Check if the given data contains any files.
+ * @param data
+ */
 export const hasFiles = (data: unknown): boolean => isFile(data)
   || (typeof data === 'object' && data !== null && Object.values(data).some(value => hasFiles(value)))
 
+/**
+ * Removes all files from the given data object recursively.
+ * @param data
+ */
 export const clearFiles = (data: object): object => {
   let newData = { ...data } as Record<string, unknown>
 
