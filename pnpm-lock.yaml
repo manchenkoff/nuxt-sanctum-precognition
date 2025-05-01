@@ -16,7 +16,7 @@ importers:
         version: 6.1.4
       nuxt-auth-sanctum:
         specifier: ^0.6.3
-        version: 0.6.3
+        version: 0.6.6
       object-form-encoder:
         specifier: ^0.0.6
         version: 0.0.6
@@ -2698,8 +2698,8 @@ packages:
     engines: {node: ^16.10.0 || >=18.0.0}
     hasBin: true
 
-  nuxt-auth-sanctum@0.6.3:
-    resolution: {integrity: sha512-l6UrWScH0yU1Ku8/J8CfSu7A3LNhSCN0ooPUTaxsHUX1axW+eBgcppN0K1of7zWuMaXbmbrFNE6bAMjtfP9f2w==}
+  nuxt-auth-sanctum@0.6.6:
+    resolution: {integrity: sha512-pD3inouKL88We6ULq9YvjWxgg3WBphubD64jggDzK1PhD4aZ7mzkasArkKhHfFmHDjMFVGX1mrlzlpoULoKb9g==}
 
   nuxt@3.16.2:
     resolution: {integrity: sha512-yjIC/C4HW8Pd+m0ACGliEF0HnimXYGYvUzjOsTiLQKkDDt2T+djyZ+pCl9BfhQBA8rYmnsym2jUI+ubjv1iClw==}
@@ -6880,7 +6880,7 @@ snapshots:
 
   nuxi@3.23.1: {}
 
-  nuxt-auth-sanctum@0.6.3:
+  nuxt-auth-sanctum@0.6.6:
     dependencies:
       defu: 6.1.4
       ofetch: 1.4.1
@@ -7021,7 +7021,7 @@ snapshots:
     dependencies:
       destr: 2.0.5
       node-fetch-native: 1.6.6
-      ufo: 1.5.4
+      ufo: 1.6.1
 
   ohash@2.0.11: {}
 
