@@ -260,6 +260,20 @@ export const usePrecognitionForm = <T extends Payload>(
       return form
     },
 
+    async validateWithErrors(): Promise<PayloadErrors<T>> {
+      form.validating = true
+
+      try {
+        await process({ precognitive: true, fields: [] })
+          .finally(() => form.validating = false)
+      }
+      catch {
+        return form.errors
+      }
+
+      return {}
+    },
+
     async submit(): Promise<ResponseType> {
       form.processing = true
 
@@ -268,7 +282,9 @@ export const usePrecognitionForm = <T extends Payload>(
     },
   }) as PrecognitionForm<T>
 
-  form.validate = debounce(form.validate, _config.validationTimeout) as typeof form.validate
+  if (_config.validationTimeout > 0) {
+    form.validate = debounce(form.validate, _config.validationTimeout) as typeof form.validate
+  }
 
   return form
 }

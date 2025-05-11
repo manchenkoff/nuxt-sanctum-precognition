@@ -125,12 +125,12 @@ export interface PrecognitionForm<T extends Payload> {
   invalid(name: PayloadKey<T>): boolean
 
   /**
-   * Gets the value of a form fields.
+   * Gets the value of a form field.
    */
   data(): T
 
   /**
-   * Sets a new values for the form fields.
+   * Sets a new value for the form fields.
    * @param data Record of key-value pairs for the form fields.
    */
   setData(data: PayloadData<T>): PrecognitionForm<T>
@@ -165,6 +165,11 @@ export interface PrecognitionForm<T extends Payload> {
    * @param options The options for validating the form.
    */
   validate(name?: PayloadKey<T> | Array<PayloadKey<T>>, options?: ValidationOptions): PrecognitionForm<T>
+
+  /**
+   * Triggers the validation of the form fields and returns the error map.
+   */
+  validateWithErrors(): Promise<PayloadErrors<T>>
 
   /**
    * Trigger the submission of the form.
