@@ -1,6 +1,32 @@
 # Changelog
 
 
+## v0.0.2
+
+[compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.1...v0.0.2)
+
+### 🚀 Enhancements
+
+- Migrated to mjs build ([0f6ce0c](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/0f6ce0c))
+- Implemented validator compatible with Nuxt UI Form ([78fcfa6](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/78fcfa6))
+
+### 🏡 Chore
+
+- **deps-dev:** Bump @nuxt/devtools from 2.3.1 to 2.3.2 ([8058ae1](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/8058ae1))
+- **deps-dev:** Bump @types/node from 22.13.13 to 22.13.16 ([7bd00be](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/7bd00be))
+- **deps-dev:** Bump @nuxt/eslint-config from 1.2.0 to 1.3.0 ([5eeef8c](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/5eeef8c))
+- **deps-dev:** Bump nuxt from 3.16.1 to 3.16.2 ([01790e6](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/01790e6))
+- **deps-dev:** Bump @nuxt/kit from 3.16.1 to 3.16.2 ([9524178](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/9524178))
+- **deps-dev:** Bump @nuxt/kit from 3.16.2 to 3.17.1 ([004d413](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/004d413))
+- **deps-dev:** Bump vitest from 3.1.1 to 3.1.2 ([e647949](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/e647949))
+- **deps-dev:** Bump vue-tsc from 2.2.8 to 2.2.10 ([e594889](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/e594889))
+- **deps-dev:** Bump @nuxt/module-builder from 0.8.4 to 1.0.1 ([a281722](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/a281722))
+- Used Nuxt UI in the playground app ([0832fd8](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/0832fd8))
+
+### ❤️ Contributors
+
+- Manchenkoff ([@manchenkoff](https://github.com/manchenkoff))
+
 ## v0.0.1
 
 
