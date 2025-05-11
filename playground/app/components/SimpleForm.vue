@@ -16,19 +16,24 @@ const payload: LoginForm = {
 
 const form = usePrecognitionForm<LoginForm>('post', '/login', payload)
 
-const reset = () => form.reset()
-const validate = () => form.validate([], {
-  validateFiles: true,
-  onSuccess: (response) => {
-    console.log('Calling onSuccess(response)', response)
-  },
-  onError: (error) => {
-    console.log('Calling onError(response)', error)
-  },
-  onValidationError: (response) => {
-    console.log('Calling onValidationError(response)', response)
-  },
-})
+const reset = () => {
+  form.reset()
+}
+
+const validate = () => {
+  form.validate([], {
+    validateFiles: true,
+    onSuccess: (response) => {
+      console.log('Calling onSuccess(response)', response)
+    },
+    onError: (error) => {
+      console.log('Calling onError(response)', error)
+    },
+    onValidationError: (response) => {
+      console.log('Calling onValidationError(response)', response)
+    },
+  })
+}
 
 // Callback way
 // const submit = () => form
@@ -50,77 +55,82 @@ async function submit() {
 </script>
 
 <template>
-  <div class="container">
-    <h1>Login form with Precognition</h1>
-
-    <div class="row">
-      <label for="email">Email</label>
-      <input
-        id="email"
-        v-model="form.fields.email"
-        type="email"
-        @change="form.validate('email')"
-        @blur="form.touch('email')"
+  <div class="flex flex-col gap-4">
+    <div class="flex gap-2 items-end">
+      <UFormField label="Email">
+        <UInput
+          v-model="form.fields.email"
+          placeholder="Email"
+          @change="form.validate('email')"
+          @blur="form.touch('email')"
+        />
+      </UFormField>
+      <div
+        v-if="form.invalid('email')"
+        class="text-error"
       >
-      <div v-if="form.invalid('email')">
         Error: {{ form.errors.email }}
       </div>
-      <button
+      <UButton
         @click="form.reset('email')"
       >
         Clear value
-      </button>
+      </UButton>
       <span>Touched: {{ form.touched('email') }}</span>
       <span>Valid: {{ form.valid('email') }}</span>
     </div>
 
-    <div class="row">
-      <label for="password">Password</label>
-      <input
-        id="password"
-        v-model="form.fields.password"
-        type="password"
-        @change="form.validate('password')"
-        @blur="form.touch('password')"
+    <div class="flex gap-2 items-end">
+      <UFormField label="Password">
+        <UInput
+          v-model="form.fields.password"
+          placeholder="Password"
+          type="password"
+          @change="form.validate('password')"
+          @blur="form.touch('password')"
+        />
+      </UFormField>
+      <div
+        v-if="form.invalid('password')"
+        class="text-error"
       >
-      <div v-if="form.invalid('password')">
         Error: {{ form.errors.password }}
       </div>
-      <button
+      <UButton
         @click="form.reset('password')"
       >
         Clear value
-      </button>
+      </UButton>
       <span>Touched: {{ form.touched('password') }}</span>
       <span>Valid: {{ form.valid('password') }}</span>
     </div>
 
-    <div class="row">
-      <button
+    <UButtonGroup>
+      <UButton
         :disabled="form.processing"
         @click="submit"
       >
         Submit
-      </button>
-      <button
+      </UButton>
+      <UButton
         :disabled="form.validating"
         @click="validate"
       >
         Validate
-      </button>
-      <button
+      </UButton>
+      <UButton
         :disabled="form.validating"
         @click="form.validate(['email', 'password'])"
       >
         Validate Explicit
-      </button>
-      <button
+      </UButton>
+      <UButton
         type="reset"
         @click="reset"
       >
         Clear
-      </button>
-    </div>
+      </UButton>
+    </UButtonGroup>
 
     <div>
       <strong>Processing:</strong>
@@ -150,18 +160,4 @@ async function submit() {
 </template>
 
 <style>
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  label {
-    width: 100px;
-  }
-}
-
-.row {
-  display: flex;
-  gap: 10px;
-}
 </style>
