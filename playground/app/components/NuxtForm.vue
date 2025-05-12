@@ -4,18 +4,20 @@ import type { FetchResponse } from 'ofetch'
 import { usePrecognitionForm, useNuxtFormValidator } from '#imports'
 
 type LoginForm = {
+  name: string
   email: string
   password: string
-  remember_me?: boolean
+  password_confirmation: string
 }
 
 const payload: LoginForm = {
+  name: '',
   email: '',
   password: '',
-  remember_me: false,
+  password_confirmation: '',
 }
 
-const form = usePrecognitionForm<LoginForm>('post', '/login', payload)
+const form = usePrecognitionForm<LoginForm>('post', '/register', payload)
 const validator = useNuxtFormValidator(form)
 const state: LoginForm = form.fields
 
@@ -52,6 +54,25 @@ async function onSubmit(event: FormSubmitEvent<LoginForm>) {
     @submit="onSubmit"
   >
     <UFormField
+      label="Name"
+      name="name"
+    >
+      <div class="flex gap-2 items-end">
+        <UInput
+          v-model="state.name"
+          placeholder="Name"
+        />
+        <UButton
+          @click="nuxtForm!.clear('name')"
+        >
+          Clear value
+        </UButton>
+        <span>Touched: {{ form.touched('name') }}</span>
+        <span>Valid: {{ form.valid('name') }}</span>
+      </div>
+    </UFormField>
+
+    <UFormField
       label="Email"
       name="email"
     >
@@ -87,6 +108,26 @@ async function onSubmit(event: FormSubmitEvent<LoginForm>) {
         </UButton>
         <span>Touched: {{ form.touched('password') }}</span>
         <span>Valid: {{ form.valid('password') }}</span>
+      </div>
+    </UFormField>
+
+    <UFormField
+      label="Password confirmation"
+      name="password_confirmation"
+    >
+      <div class="flex gap-2 items-end">
+        <UInput
+          v-model="state.password_confirmation"
+          placeholder="Password confirmation"
+          type="password"
+        />
+        <UButton
+          @click="nuxtForm!.clear('password_confirmation')"
+        >
+          Clear value
+        </UButton>
+        <span>Touched: {{ form.touched('password_confirmation') }}</span>
+        <span>Valid: {{ form.valid('password_confirmation') }}</span>
       </div>
     </UFormField>
 

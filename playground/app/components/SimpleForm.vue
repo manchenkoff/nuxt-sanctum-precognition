@@ -3,18 +3,20 @@ import type { FetchResponse } from 'ofetch'
 import { usePrecognitionForm } from '#imports'
 
 type LoginForm = {
+  name: string
   email: string
   password: string
-  remember_me?: boolean
+  password_confirmation: string
 }
 
 const payload: LoginForm = {
+  name: '',
   email: '',
   password: '',
-  remember_me: false,
+  password_confirmation: '',
 }
 
-const form = usePrecognitionForm<LoginForm>('post', '/login', payload)
+const form = usePrecognitionForm<LoginForm>('post', '/register', payload)
 
 const reset = () => {
   form.reset()
@@ -56,6 +58,30 @@ async function submit() {
 
 <template>
   <div class="flex flex-col gap-4">
+    <div class="flex gap-2 items-end">
+      <UFormField label="Name">
+        <UInput
+          v-model="form.fields.name"
+          placeholder="Name"
+          @change="form.validate('name')"
+          @blur="form.touch('name')"
+        />
+      </UFormField>
+      <div
+        v-if="form.invalid('name')"
+        class="text-error"
+      >
+        Error: {{ form.errors.name }}
+      </div>
+      <UButton
+        @click="form.reset('name')"
+      >
+        Clear value
+      </UButton>
+      <span>Touched: {{ form.touched('email') }}</span>
+      <span>Valid: {{ form.valid('email') }}</span>
+    </div>
+
     <div class="flex gap-2 items-end">
       <UFormField label="Email">
         <UInput
@@ -103,6 +129,31 @@ async function submit() {
       </UButton>
       <span>Touched: {{ form.touched('password') }}</span>
       <span>Valid: {{ form.valid('password') }}</span>
+    </div>
+
+    <div class="flex gap-2 items-end">
+      <UFormField label="Password confirmation">
+        <UInput
+          v-model="form.fields.password_confirmation"
+          placeholder="Password confirmation"
+          type="password_confirmation"
+          @change="form.validate('password_confirmation')"
+          @blur="form.touch('password_confirmation')"
+        />
+      </UFormField>
+      <div
+        v-if="form.invalid('password_confirmation')"
+        class="text-error"
+      >
+        Error: {{ form.errors.password_confirmation }}
+      </div>
+      <UButton
+        @click="form.reset('password_confirmation')"
+      >
+        Clear value
+      </UButton>
+      <span>Touched: {{ form.touched('password_confirmation') }}</span>
+      <span>Valid: {{ form.valid('password_confirmation') }}</span>
     </div>
 
     <UButtonGroup>
