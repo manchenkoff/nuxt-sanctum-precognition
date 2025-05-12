@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.0.3
+
+[compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.2...v0.0.3)
+
+### 🩹 Fixes
+
+- Optimize lodash dependency ([7d59394](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/7d59394))
+
+### 🏡 Chore
+
+- Use registration instead of login form ([d1665a4](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/d1665a4))
+
+### ❤️ Contributors
+
+- Manchenkoff ([@manchenkoff](https://github.com/manchenkoff))
+
 ## v0.0.2
 
 [compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.1...v0.0.2)
