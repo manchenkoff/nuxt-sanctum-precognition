@@ -33,6 +33,16 @@ export default defineNuxtModule<ModuleOptions>({
 
     addImportsDir(resolver.resolve('./runtime/composables'))
 
+    // Register lodash as a dependency to optimize to fix packaging issues
+    _nuxt.hook('vite:extendConfig', (config) => {
+      config.optimizeDeps = config.optimizeDeps || {}
+      config.optimizeDeps.include = config.optimizeDeps.include || []
+
+      if (!config.optimizeDeps.include.includes('lodash')) {
+        config.optimizeDeps.include.push('lodash')
+      }
+    })
+
     logger.info('Precognition module initialized with Sanctum')
   },
 })
