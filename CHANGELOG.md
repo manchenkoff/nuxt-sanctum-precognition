@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.5
+
+[compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.4...v0.0.5)
+
+### 🚀 Enhancements
+
+- Support MaybeRefOrGetter for endpoint url ([4e423b9](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/4e423b9))
+
+### ❤️ Contributors
+
+- Manchenkoff ([@manchenkoff](https://github.com/manchenkoff))
+
 ## v0.0.4
 
 [compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.3...v0.0.4)
