@@ -33,7 +33,8 @@
   "dependencies": {
     "defu": "^6.1.4",
     "nuxt-auth-sanctum": "^0.6.6",
-    "object-form-encoder": "^0.0.6"
+    "object-form-encoder": "^0.0.6",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@nuxt/devtools": "^2.4.0",
@@ -47,7 +48,6 @@
     "@types/node": "^22.15.17",
     "changelogen": "^0.6.1",
     "eslint": "^9.26.0",
-    "lodash": "^4.17.21",
     "nuxt": "^3.17.3",
     "typescript": "^5.8.3",
     "vitest": "^3.1.3",
