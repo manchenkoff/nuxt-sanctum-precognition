@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.0.4
+
+[compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.3...v0.0.4)
+
+### 🚀 Enhancements
+
+- Support dynamic endpoint url ([1a85af7](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/1a85af7))
+
+### 🩹 Fixes
+
+- Use lodash as explicit dependency ([09c91d8](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/09c91d8))
+
+### ❤️ Contributors
+
+- Manchenkoff ([@manchenkoff](https://github.com/manchenkoff))
+
 ## v0.0.3
 
 [compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.2...v0.0.3)
