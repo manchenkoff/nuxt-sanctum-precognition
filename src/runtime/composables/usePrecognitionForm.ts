@@ -1,4 +1,4 @@
-import { computed, type MaybeRef, reactive, type Ref, ref, toRaw, unref } from 'vue'
+import { computed, type MaybeRefOrGetter, reactive, type Ref, ref, toRaw, toValue } from 'vue'
 import { cloneDeep, debounce, isEqual } from 'lodash'
 import { objectToFormData } from 'object-form-encoder'
 import type {
@@ -36,7 +36,7 @@ type FormProcessParams<T extends Payload> = {
  */
 export const usePrecognitionForm = <T extends Payload>(
   method: RequestMethod,
-  url: MaybeRef<string>,
+  url: MaybeRefOrGetter<string>,
   payload: T,
 ): PrecognitionForm<T> => {
   const _originalPayload: T = cloneDeep(payload)
@@ -77,7 +77,7 @@ export const usePrecognitionForm = <T extends Payload>(
       }
     }
 
-    const response = await _client.raw(unref(url), {
+    const response = await _client.raw(toValue(url), {
       method: method,
       ...(
         ['get', 'delete'].includes(method)
