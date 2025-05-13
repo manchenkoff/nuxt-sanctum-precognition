@@ -1,4 +1,4 @@
-import { computed, reactive, type Ref, ref, toRaw } from 'vue'
+import { computed, type MaybeRef, reactive, type Ref, ref, toRaw, unref } from 'vue'
 import { cloneDeep, debounce, isEqual } from 'lodash'
 import { objectToFormData } from 'object-form-encoder'
 import type {
@@ -28,8 +28,6 @@ type FormProcessParams<T extends Payload> = {
   options?: ValidationOptions
 }
 
-// TODO: implement a Nuxt UI compatible version of this composable (via decorator?)
-
 /**
  * Creates a new Precognition form instance.
  * @param method HTTP method
@@ -38,7 +36,7 @@ type FormProcessParams<T extends Payload> = {
  */
 export const usePrecognitionForm = <T extends Payload>(
   method: RequestMethod,
-  url: string,
+  url: MaybeRef<string>,
   payload: T,
 ): PrecognitionForm<T> => {
   const _originalPayload: T = cloneDeep(payload)
@@ -79,7 +77,7 @@ export const usePrecognitionForm = <T extends Payload>(
       }
     }
 
-    const response = await _client.raw(url, {
+    const response = await _client.raw(unref(url), {
       method: method,
       ...(
         ['get', 'delete'].includes(method)
@@ -147,7 +145,7 @@ export const usePrecognitionForm = <T extends Payload>(
       Object
         .keys(data)
         .forEach((key: PayloadKey<T>) => {
-          // @ts-expect-error: assign property value on reactive object
+          // @ts-expect-error: assign property value on a reactive object
           form.fields[key] = data[key]
         })
 
@@ -173,7 +171,7 @@ export const usePrecognitionForm = <T extends Payload>(
 
     reset(...keys: PayloadKey<T>[]): PrecognitionForm<T> {
       const resetField = (fieldName: string) => {
-        // @ts-expect-error: assign property value on reactive object
+        // @ts-expect-error: assign property value on a reactive object
         form.fields[fieldName] = _originalPayload[fieldName]
         form.forgetError(fieldName)
       }
