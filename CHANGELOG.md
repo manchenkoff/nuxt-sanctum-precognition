@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.0.6
+
+[compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.5...v0.0.6)
+
+### 🚀 Enhancements
+
+- Use structuredClone over lodash cloneDeep ([44e96fa](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/44e96fa))
+- Support MaybeRefOrGetter for form endpoint url ([6edcba2](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/6edcba2))
+
+### 🩹 Fixes
+
+- Use lodash es module instead of cjs ([a3e87c0](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/a3e87c0))
+
+### ❤️ Contributors
+
+- Manchenkoff ([@manchenkoff](https://github.com/manchenkoff))
+
 ## v0.0.5
 
 [compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.4...v0.0.5)
