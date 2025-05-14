@@ -11,7 +11,7 @@ type LoginForm = {
 }
 
 const payload: LoginForm = {
-  name: '',
+  name: 'John Doe',
   email: '',
   password: '',
   password_confirmation: '',
