@@ -1,5 +1,5 @@
 import { computed, type MaybeRefOrGetter, reactive, type Ref, ref, toRaw, toValue } from 'vue'
-import { cloneDeep, debounce, isEqual } from 'lodash'
+import { cloneDeep, debounce, isEqual } from 'lodash-es'
 import { objectToFormData } from 'object-form-encoder'
 import type {
   Payload,
