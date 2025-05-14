@@ -35,7 +35,7 @@ type FormProcessParams<T extends Payload> = {
  * @param payload Initial form data object
  */
 export const usePrecognitionForm = <T extends Payload>(
-  method: RequestMethod,
+  method: MaybeRefOrGetter<RequestMethod>,
   url: MaybeRefOrGetter<string>,
   payload: T,
 ): PrecognitionForm<T> => {
@@ -77,10 +77,14 @@ export const usePrecognitionForm = <T extends Payload>(
       }
     }
 
-    const response = await _client.raw(toValue(url), {
-      method: method,
+    const
+      request_url = toValue(url),
+      request_method = toValue(method)
+
+    const response = await _client.raw(request_url, {
+      method: request_method,
       ...(
-        ['get', 'delete'].includes(method)
+        ['get', 'delete'].includes(request_method)
           ? { query: payload } // GET, DELETE
           : { body: payload } // POST, PUT, PATCH
       ),
