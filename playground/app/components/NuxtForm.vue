@@ -158,6 +158,11 @@ async function onSubmit(event: FormSubmitEvent<LoginForm>) {
 
   <div class="flex flex-col mt-4 gap-4">
     <div>
+      <strong>Was Successful:</strong>
+      <pre>{{ form.wasSuccessful }}</pre>
+    </div>
+
+    <div>
       <strong>Processing:</strong>
       <pre>{{ form.processing }}</pre>
     </div>

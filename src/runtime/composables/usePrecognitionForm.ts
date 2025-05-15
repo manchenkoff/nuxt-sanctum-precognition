@@ -136,6 +136,7 @@ export const usePrecognitionForm = <T extends Payload>(
     processing: false,
     validating: false,
     hasErrors: computed(() => Object.keys(form.errors).length > 0) as unknown as boolean,
+    wasSuccessful: false,
 
     touched: (name: PayloadKey<T>): boolean => _touched.value.includes(name),
     valid: (name: PayloadKey<T>): boolean => _validated.value.includes(name) && !form.invalid(name),
@@ -280,6 +281,14 @@ export const usePrecognitionForm = <T extends Payload>(
       form.processing = true
 
       return await process()
+        .then((response) => {
+          form.wasSuccessful = true
+          return response
+        })
+        .catch((response) => {
+          form.wasSuccessful = false
+          return response
+        })
         .finally(() => form.processing = false)
     },
   }) as PrecognitionForm<T>

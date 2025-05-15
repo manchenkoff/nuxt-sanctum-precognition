@@ -184,6 +184,11 @@ async function submit() {
     </UButtonGroup>
 
     <div>
+      <strong>Was Successful:</strong>
+      <pre>{{ form.wasSuccessful }}</pre>
+    </div>
+
+    <div>
       <strong>Processing:</strong>
       <pre>{{ form.processing }}</pre>
     </div>
