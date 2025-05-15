@@ -163,6 +163,11 @@ async function onSubmit(event: FormSubmitEvent<LoginForm>) {
     </div>
 
     <div>
+      <strong>Recently Successful:</strong>
+      <pre>{{ form.recentlySuccessful }}</pre>
+    </div>
+
+    <div>
       <strong>Processing:</strong>
       <pre>{{ form.processing }}</pre>
     </div>
