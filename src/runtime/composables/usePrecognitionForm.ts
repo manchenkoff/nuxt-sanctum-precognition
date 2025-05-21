@@ -3,6 +3,7 @@ import { debounce, isEqual } from 'lodash-es'
 import { objectToFormData } from 'object-form-encoder'
 import type {
   Payload,
+  PayloadData,
   PayloadErrors,
   PayloadKey,
   PrecognitionForm,
@@ -144,7 +145,7 @@ export const usePrecognitionForm = <T extends Payload>(
       return toRaw(form.fields) as T
     },
 
-    setData(data: Partial<T>): PrecognitionForm<T> {
+    setData(data: Partial<PayloadData<T>>): PrecognitionForm<T> {
       Object
         .keys(data)
         .forEach((key: PayloadKey<T>) => {
