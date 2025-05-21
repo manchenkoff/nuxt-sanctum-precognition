@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.0.7
+
+[compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.6...v0.0.7)
+
+### 🚀 Enhancements
+
+- Added wasSuccessful field to form ([94d9fa0](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/94d9fa0))
+- Added recentlySuccessful field to form ([942a423](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/942a423))
+
+### 🩹 Fixes
+
+- Reflect setData type in the interface ([f0164e9](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/f0164e9))
+
+### ❤️ Contributors
+
+- Manchenkoff ([@manchenkoff](https://github.com/manchenkoff))
+
 ## v0.0.6
 
 [compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.5...v0.0.6)
