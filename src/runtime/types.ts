@@ -105,6 +105,15 @@ export interface PrecognitionForm<T extends Payload> {
    * Whether the form has any errors.
    */
   hasErrors: boolean
+  /**
+   * Becomes true when a form has been successfully submitted.
+   */
+  wasSuccessful: boolean
+  /**
+   * Becomes true for two seconds after a successful form submission.
+   * This property can be used to show temporary success messages.
+   */
+  recentlySuccessful: boolean
 
   /**
    * Checks if a form field has been touched.
