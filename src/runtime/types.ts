@@ -142,7 +142,7 @@ export interface PrecognitionForm<T extends Payload> {
    * Sets a new value for the form fields.
    * @param data Record of key-value pairs for the form fields.
    */
-  setData(data: PayloadData<T>): PrecognitionForm<T>
+  setData(data: Partial<PayloadData<T>>): PrecognitionForm<T>
 
   /**
    * Marks a form field as touched.
