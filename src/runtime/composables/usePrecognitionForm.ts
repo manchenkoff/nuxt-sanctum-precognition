@@ -145,7 +145,7 @@ export const usePrecognitionForm = <T extends Payload>(
       return toRaw(form.fields) as T
     },
 
-    setData(data: PayloadData<T>): PrecognitionForm<T> {
+    setData(data: Partial<PayloadData<T>>): PrecognitionForm<T> {
       Object
         .keys(data)
         .forEach((key: PayloadKey<T>) => {
