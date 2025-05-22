@@ -295,7 +295,7 @@ export const usePrecognitionForm = <T extends Payload>(
         })
         .catch((response) => {
           form.wasSuccessful = false
-          return response
+          throw response
         })
         .finally(() => form.processing = false)
     },
