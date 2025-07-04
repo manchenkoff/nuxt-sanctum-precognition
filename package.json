@@ -33,7 +33,7 @@
   "dependencies": {
     "defu": "^6.1.4",
     "lodash-es": "^4.17.21",
-    "nuxt-auth-sanctum": "^0.6.6",
+    "nuxt-auth-sanctum": "^1.0.1",
     "object-form-encoder": "^0.0.6"
   },
   "devDependencies": {
