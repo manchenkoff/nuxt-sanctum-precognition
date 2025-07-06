@@ -1,6 +1,25 @@
 # Changelog
 
 
+## v0.0.9
+
+[compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.8...v0.0.9)
+
+### 🩹 Fixes
+
+- Keep errors on single-field validation ([2c26971](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/2c26971))
+
+### 🏡 Chore
+
+- **deps-dev:** Bump nuxt from 3.17.3 to 3.17.4 ([e155fcb](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/e155fcb))
+- **deps-dev:** Bump @types/node from 22.15.31 to 24.0.8 ([6a5750a](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/6a5750a))
+- Bump packages ([1d3bf75](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/1d3bf75))
+- Bump packages ([cfc331b](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/cfc331b))
+
+### ❤️ Contributors
+
+- Manchenkoff ([@manchenkoff](https://github.com/manchenkoff))
+
 ## v0.0.8
 
 [compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.7...v0.0.8)
