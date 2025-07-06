@@ -112,7 +112,7 @@ async function submit() {
           v-model="form.fields.password"
           placeholder="Password"
           type="password"
-          @change="form.validate('password')"
+          @change="form.validate(['password', 'password_confirmation'])"
           @blur="form.touch('password')"
         />
       </UFormField>
@@ -137,7 +137,7 @@ async function submit() {
           v-model="form.fields.password_confirmation"
           placeholder="Password confirmation"
           type="password_confirmation"
-          @change="form.validate('password_confirmation')"
+          @change="form.validate(['password_confirmation', 'password'])"
           @blur="form.touch('password_confirmation')"
         />
       </UFormField>
