@@ -29,6 +29,10 @@ type FormProcessParams<T extends Payload> = {
   options?: ValidationOptions
 }
 
+type ValidationErrorResponse = {
+  errors: PayloadErrors<Payload>
+}
+
 /**
  * Creates a new Precognition form instance.
  * @param method HTTP method
@@ -124,7 +128,20 @@ export const usePrecognitionForm = <T extends Payload>(
     }
 
     if (response.status === STATUS_VALIDATION_ERROR) {
-      form.setErrors(response._data.errors as PayloadErrors<T>)
+      const validationResponse = response._data as ValidationErrorResponse
+
+      if (params.fields.length == 0) {
+        form.setErrors(validationResponse.errors as PayloadErrors<T>)
+      }
+      else {
+        const currentErrors: PayloadErrors<T> = form.errors
+        const newErrors: PayloadErrors<T> = validationResponse.errors
+
+        for (const field in newErrors) {
+          // @ts-expect-error field is always a key of an object
+          currentErrors[field] = newErrors[field]
+        }
+      }
     }
 
     return Promise.reject(response)
