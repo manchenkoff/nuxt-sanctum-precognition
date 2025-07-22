@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.0.10
+
+[compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.9...v0.0.10)
+
+### 🩹 Fixes
+
+- Bump packages and fixed vulnerability ([33ddf0a](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/33ddf0a))
+
+### 🏡 Chore
+
+- Bump pnpm version ([c685e84](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/c685e84))
+- Bump nuxt 4 packages ([6893b9a](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/6893b9a))
+
+### ❤️ Contributors
+
+- Manchenkoff ([@manchenkoff](https://github.com/manchenkoff))
+
 ## v0.0.9
 
 [compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.8...v0.0.9)
