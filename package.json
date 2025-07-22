@@ -13,13 +13,20 @@
     }
   },
   "main": "./dist/module.mjs",
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/types.d.mts"
+      ]
+    }
+  },
   "files": [
     "dist"
   ],
   "scripts": {
     "prepack": "nuxt-module-build build",
     "rc": "pnpm pack --pack-destination dist",
-    "dev": "nuxi dev playground",
+    "dev": "npm run dev:prepare && nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
     "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
@@ -51,6 +58,7 @@
     "nuxt": "^4.0.1",
     "typescript": "^5.8.3",
     "vitest": "^3.2.4",
+    "vue": "^3.5.17",
     "vue-tsc": "^2.2.12"
   },
   "packageManager": "pnpm@10.13.1+sha512.37ebf1a5c7a30d5fabe0c5df44ee8da4c965ca0c5af3dbab28c3a1681b70a256218d05c81c9c0dcf767ef6b8551eb5b960042b9ed4300c59242336377e01cfad",
