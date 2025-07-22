@@ -62,9 +62,7 @@ async function onSubmit(event: FormSubmitEvent<LoginForm>) {
           v-model="state.name"
           placeholder="Name"
         />
-        <UButton
-          @click="nuxtForm!.clear('name')"
-        >
+        <UButton @click="nuxtForm!.clear('name')">
           Clear value
         </UButton>
         <span>Touched: {{ form.touched('name') }}</span>
@@ -81,9 +79,7 @@ async function onSubmit(event: FormSubmitEvent<LoginForm>) {
           v-model="state.email"
           placeholder="Email"
         />
-        <UButton
-          @click="nuxtForm!.clear('email')"
-        >
+        <UButton @click="nuxtForm!.clear('email')">
           Clear value
         </UButton>
         <span>Touched: {{ form.touched('email') }}</span>
@@ -101,9 +97,7 @@ async function onSubmit(event: FormSubmitEvent<LoginForm>) {
           placeholder="Password"
           type="password"
         />
-        <UButton
-          @click="nuxtForm!.clear('password')"
-        >
+        <UButton @click="nuxtForm!.clear('password')">
           Clear value
         </UButton>
         <span>Touched: {{ form.touched('password') }}</span>
@@ -121,9 +115,7 @@ async function onSubmit(event: FormSubmitEvent<LoginForm>) {
           placeholder="Password confirmation"
           type="password"
         />
-        <UButton
-          @click="nuxtForm!.clear('password_confirmation')"
-        >
+        <UButton @click="nuxtForm!.clear('password_confirmation')">
           Clear value
         </UButton>
         <span>Touched: {{ form.touched('password_confirmation') }}</span>
