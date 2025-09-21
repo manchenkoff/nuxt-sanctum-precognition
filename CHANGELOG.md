@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.0.11
+
+[compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.10...v0.0.11)
+
+### 🏡 Chore
+
+- **deps-dev:** Bump @nuxt/module-builder from 1.0.1 to 1.0.2 ([94e7cef](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/94e7cef))
+- **deps-dev:** Bump @nuxt/eslint-config from 1.7.0 to 1.7.1 ([caa4734](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/caa4734))
+- Bump packages ([72991cc](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/72991cc))
+- **deps-dev:** Bump @nuxt/ui from 3.3.2 to 3.3.3 ([d1ded99](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/d1ded99))
+- **deps-dev:** Bump nuxt in the npm_and_yarn group across 1 directory ([b372628](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/b372628))
+
+### 🤖 CI
+
+- Simplify github actions ([1ab36b4](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/1ab36b4))
+
+### ❤️ Contributors
+
+- Manchenkoff ([@manchenkoff](https://github.com/manchenkoff))
+
 ## v0.0.10
 
 [compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.9...v0.0.10)
