@@ -1,4 +1,4 @@
-import { defineNuxtModule, createResolver, useLogger, addImportsDir, installModule } from '@nuxt/kit'
+import { defineNuxtModule, createResolver, useLogger, addImportsDir } from '@nuxt/kit'
 import defu from 'defu'
 import type { ModuleOptions } from './runtime/types'
 import { defaultModuleOptions } from './config'
@@ -13,9 +13,15 @@ export default defineNuxtModule<ModuleOptions>({
     configKey: 'precognition',
   },
 
+  moduleDependencies: {
+    'nuxt-auth-sanctum': {
+      version: '>=1.3.0',
+    },
+  },
+
   defaults: defaultModuleOptions,
 
-  async setup(_options, _nuxt) {
+  setup(_options, _nuxt) {
     const resolver = createResolver(import.meta.url)
     const precognitionConfig = defu(
       _nuxt.options.runtimeConfig.public.precognition,
@@ -28,8 +34,6 @@ export default defineNuxtModule<ModuleOptions>({
     const logger = useLogger(MODULE_NAME, {
       level: precognitionConfig.logLevel,
     })
-
-    await installModule('nuxt-auth-sanctum')
 
     addImportsDir(resolver.resolve('./runtime/composables'))
 
