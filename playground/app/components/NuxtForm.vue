@@ -28,7 +28,7 @@ const reset = () => {
 }
 
 const validate = () => {
-  nuxtForm.value!.validate()
+  nuxtForm.value!.validate({})
 }
 
 async function onSubmit(event: FormSubmitEvent<LoginForm>) {
@@ -123,7 +123,7 @@ async function onSubmit(event: FormSubmitEvent<LoginForm>) {
       </div>
     </UFormField>
 
-    <UButtonGroup>
+    <UFieldGroup>
       <UButton type="submit">
         Submit
       </UButton>
@@ -145,7 +145,7 @@ async function onSubmit(event: FormSubmitEvent<LoginForm>) {
       >
         Clear
       </UButton>
-    </UButtonGroup>
+    </UFieldGroup>
   </UForm>
 
   <div class="flex flex-col mt-4 gap-4">

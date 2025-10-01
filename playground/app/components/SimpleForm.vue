@@ -156,7 +156,7 @@ async function submit() {
       <span>Valid: {{ form.valid('password_confirmation') }}</span>
     </div>
 
-    <UButtonGroup>
+    <UFieldGroup>
       <UButton
         :disabled="form.processing"
         @click="submit"
@@ -181,7 +181,7 @@ async function submit() {
       >
         Clear
       </UButton>
-    </UButtonGroup>
+    </UFieldGroup>
 
     <div>
       <strong>Was Successful:</strong>
