@@ -50,7 +50,7 @@
     "@nuxt/module-builder": "^1.0.2",
     "@nuxt/schema": "^4.1.2",
     "@nuxt/test-utils": "^3.19.2",
-    "@nuxt/ui": "^3.3.5",
+    "@nuxt/ui": "^4.0.0",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^24.6.1",
     "changelogen": "^0.6.2",
