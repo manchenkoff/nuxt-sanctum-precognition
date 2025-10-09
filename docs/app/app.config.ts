@@ -116,13 +116,13 @@ export default defineAppConfig({
         {
           icon: 'i-lucide-star',
           label: 'Star on GitHub',
-          to: 'https://github.com/manchenkoff/nuxt-laravel-echo',
+          to: 'https://github.com/manchenkoff/nuxt-sanctum-precognition',
           target: '_blank'
         },
         {
           icon: 'i-lucide-git-pull-request-create',
           label: 'Suggest a feature',
-          to: 'https://github.com/manchenkoff/nuxt-laravel-echo/issues/new?template=feature_request.md',
+          to: 'https://github.com/manchenkoff/nuxt-sanctum-precognition/issues/new?template=feature_request.md',
           target: '_blank'
         },
         {

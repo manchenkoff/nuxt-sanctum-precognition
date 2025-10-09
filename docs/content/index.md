@@ -162,7 +162,7 @@ Features
       variant: subtle
       icon: i-simple-icons-github
   title: Ready to validate new form?
-  description: Validate forms of any complexity with Laravel, Echo and Nuxt today!
+  description: Validate forms of any complexity with Laravel, Precognition and Nuxt today!
   class: dark:bg-neutral-950
   ---
 

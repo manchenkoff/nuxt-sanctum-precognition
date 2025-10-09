@@ -19,7 +19,7 @@ useSeoMeta({
 defineOgImageComponent(
   'Docs',
   {
-    headline: 'Nuxt Laravel Echo'
+    headline: 'Nuxt Laravel Precognition'
   }
 )
 </script>
