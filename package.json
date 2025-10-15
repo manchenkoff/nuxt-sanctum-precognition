@@ -2,7 +2,7 @@
   "name": "nuxt-sanctum-precognition",
   "version": "0.0.11",
   "description": "Nuxt module for Laravel Precognition integration",
-  "homepage": "https://manchenkoff.gitbook.io/nuxt-sanctum-precognition/",
+  "homepage": "https://precognition.manchenkoff.me",
   "repository": "manchenkoff/nuxt-sanctum-precognition",
   "license": "MIT",
   "type": "module",
