@@ -1,6 +1,29 @@
 # Changelog
 
 
+## v0.0.12
+
+[compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.11...v0.0.12)
+
+### 🚀 Enhancements
+
+- Added docs application based on nuxt content ([e8ee35b](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/e8ee35b))
+
+### 🩹 Fixes
+
+- Replaced echo typos with precognition ([ea56d42](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/ea56d42))
+
+### 🏡 Chore
+
+- **ui:** Migrate to nuxt ui 4 ([5780f43](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/5780f43))
+- Added yaml linter configs ([17bce43](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/17bce43))
+- **ci:** Trigger docs deployment only if changed ([f06e7f2](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/f06e7f2))
+- **docs:** Updated website url ([c0610e4](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/c0610e4))
+
+### ❤️ Contributors
+
+- Manchenkoff ([@manchenkoff](https://github.com/manchenkoff))
+
 ## v0.0.11
 
 [compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.10...v0.0.11)
