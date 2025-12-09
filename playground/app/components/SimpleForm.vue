@@ -204,6 +204,11 @@ async function submit() {
     </div>
 
     <div>
+      <strong>Is Dirty:</strong>
+      <pre>{{ form.isDirty }}</pre>
+    </div>
+
+    <div>
       <strong>Has Errors:</strong>
       <pre>{{ form.hasErrors }}</pre>
     </div>

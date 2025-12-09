@@ -6,11 +6,13 @@ export interface ModuleOptions {
    * @default false
    */
   validateFiles: boolean
+
   /**
    * The duration in milliseconds to wait before validating the form.
    * @default 500
    */
   validationTimeout: number
+
   /**
    * The log level to use for the logger.
    *
@@ -31,14 +33,17 @@ export interface ModuleOptions {
  * The payload object that represents the form data.
  */
 export type Payload = Record<string, unknown>
+
 /**
  * The key of the payload object.
  */
 export type PayloadKey<T extends Payload> = keyof T & string
+
 /**
  * Object type of the payload instance (key-value pairs).
  */
 export type PayloadData<T extends Payload> = Record<PayloadKey<T>, unknown>
+
 /**
  * Dictionary of errors for each payload key.
  */
@@ -48,6 +53,7 @@ export type PayloadErrors<T extends Payload> = Partial<Record<PayloadKey<T>, str
  * The request method to use for the form submission.
  */
 export type RequestMethod = 'get' | 'post' | 'patch' | 'put' | 'delete'
+
 /**
  * The response type for the form submission.
  */
@@ -63,16 +69,19 @@ export type ValidationOptions = {
    * Otherwise, files will be removed before sending the request.
    */
   validateFiles?: boolean
+
   /**
    * A callback function to execute when the form submission is successful.
    * @param response The HTTP response from the server.
    */
   onSuccess?: (response: ResponseType) => void
+
   /**
    * A callback function to execute when the form submission fails.
    * @param error The Error instance or HTTP response from the server.
    */
   onError?: (error: Error | ResponseType) => void
+
   /**
    * A callback function to execute when the form validation fails.
    * @param response The HTTP response from the server.
@@ -88,6 +97,7 @@ export interface PrecognitionForm<T extends Payload> {
    * Values of the form fields.
    */
   fields: T
+
   /**
    * Errors for each form field.
    */
@@ -97,18 +107,27 @@ export interface PrecognitionForm<T extends Payload> {
    * Whether the form is currently processing a submission request.
    */
   processing: boolean
+
   /**
    * Whether the form is currently validating the fields.
    */
   validating: boolean
+
   /**
    * Whether the form has any errors.
    */
   hasErrors: boolean
+
+  /**
+   * Whether the form has been modified.
+   */
+  isDirty: boolean
+
   /**
    * Becomes true when a form has been successfully submitted.
    */
   wasSuccessful: boolean
+
   /**
    * Becomes true for two seconds after a successful form submission.
    * This property can be used to show temporary success messages.
