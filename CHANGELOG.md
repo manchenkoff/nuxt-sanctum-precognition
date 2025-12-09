@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.0.14
+
+[compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.13...v0.0.14)
+
+### 🚀 Enhancements
+
+- Added isDirty property for the form ([95c9407](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/95c9407))
+
+### 🏡 Chore
+
+- Updated playground example ([265aae8](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/265aae8))
+- **docs:** Added usage example for isDirty property ([78742d2](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/78742d2))
+
+### ❤️ Contributors
+
+- Manchenkoff ([@manchenkoff](https://github.com/manchenkoff))
+
 ## v0.0.13
 
 [compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.12...v0.0.13)
