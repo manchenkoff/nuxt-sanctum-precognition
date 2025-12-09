@@ -154,6 +154,7 @@ export const usePrecognitionForm = <T extends Payload>(
     processing: false,
     validating: false,
     hasErrors: computed(() => Object.keys(form.errors).length > 0) as unknown as boolean,
+    isDirty: computed(() => !isEqual(form.fields, _originalPayload)) as unknown as boolean,
     wasSuccessful: false,
     recentlySuccessful: false,
 
@@ -204,6 +205,8 @@ export const usePrecognitionForm = <T extends Payload>(
         _originalPayloadKeys.forEach(name => resetField(name))
         _touched.value = []
         _validated.value = []
+
+        return form
       }
 
       const newTouched = [..._touched.value]
