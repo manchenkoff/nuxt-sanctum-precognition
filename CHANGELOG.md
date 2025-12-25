@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.15
+
+[compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.14...v0.0.15)
+
+### 🩹 Fixes
+
+- Use new release pipeline workflow ([2065c84](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/2065c84))
+
+### ❤️ Contributors
+
+- Manchenkoff ([@manchenkoff](https://github.com/manchenkoff))
+
 ## v0.0.14
 
 [compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.13...v0.0.14)
