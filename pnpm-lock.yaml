@@ -16,7 +16,7 @@ importers:
         version: 4.17.23
       nuxt-auth-sanctum:
         specifier: ^2.1.1
-        version: 2.1.1
+        version: 2.1.2
       object-form-encoder:
         specifier: ^0.0.6
         version: 0.0.6
@@ -4281,8 +4281,8 @@ packages:
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
 
-  nuxt-auth-sanctum@2.1.1:
-    resolution: {integrity: sha512-AqHODf9JEhfzAU+8VRm6dVddUH5FjCpb5xCM6XljVzGQfBAtTU40SFnuv1dMNPIrHU9qlqXAMrIhTv2LfWCFIQ==}
+  nuxt-auth-sanctum@2.1.2:
+    resolution: {integrity: sha512-2i5h8V2qr9XB1F7j1BTyOXq6zJHx3tHOO+wPD9yiezWN0UqG06hwKqAVS2G+it7Cb9STHBRFAY+6y90BR/SVdA==}
 
   nuxt@4.3.0:
     resolution: {integrity: sha512-99Iw3E3L5/2QtJyV4errZ0axkX/S9IAFK0AHm0pmRHkCu37OFn8mz2P4/CYTt6B/TG3mcKbXAVaeuF2FsAc1cA==}
@@ -10459,7 +10459,7 @@ snapshots:
     dependencies:
       boolbase: 1.0.0
 
-  nuxt-auth-sanctum@2.1.1:
+  nuxt-auth-sanctum@2.1.2:
     dependencies:
       defu: 6.1.4
       ofetch: 1.5.1
