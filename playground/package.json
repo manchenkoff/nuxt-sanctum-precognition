@@ -11,6 +11,6 @@
     "@nuxt/ui": "^4.5.1",
     "nuxt": "latest",
     "tailwindcss": "^4.2.1",
-    "vue": "^3.5.29"
+    "vue": "^3.5.30"
   }
 }
