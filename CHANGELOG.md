@@ -1,6 +1,28 @@
 # Changelog
 
 
+## v0.0.16
+
+[compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.15...v0.0.16)
+
+### 🏡 Chore
+
+- **deps-dev:** Bump @types/node from 24.10.4 to 25.0.3 ([0cbeb97](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/0cbeb97))
+- Bump packages ([efd209c](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/efd209c))
+- Added certificated.dev banner ([a7d90ad](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/a7d90ad))
+- **deps-dev:** Bump nuxt from 4.2.2 to 4.3.0 ([70cc12d](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/70cc12d))
+- **deps-dev:** Bump @nuxt/kit from 4.2.2 to 4.3.0 ([5736c50](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/5736c50))
+- **deps-dev:** Bump @types/node from 25.0.9 to 25.1.0 ([80d3e78](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/80d3e78))
+- **deps-dev:** Bump @nuxt/schema from 4.2.2 to 4.3.0 ([af908d0](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/af908d0))
+- **deps-dev:** Bump @nuxt/kit from 4.3.0 to 4.3.1 ([#137](https://github.com/manchenkoff/nuxt-sanctum-precognition/pull/137))
+- **deps-dev:** Bump @nuxt/schema from 4.3.0 to 4.3.1 ([#134](https://github.com/manchenkoff/nuxt-sanctum-precognition/pull/134))
+- **deps-dev:** Bump @nuxt/eslint-config from 1.12.1 to 1.15.2 ([#136](https://github.com/manchenkoff/nuxt-sanctum-precognition/pull/136))
+- **deps-dev:** Bump @types/node from 25.1.0 to 25.3.3 ([#135](https://github.com/manchenkoff/nuxt-sanctum-precognition/pull/135))
+
+### ❤️ Contributors
+
+- Manchenkoff ([@manchenkoff](https://github.com/manchenkoff))
+
 ## v0.0.15
 
 [compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.14...v0.0.15)
