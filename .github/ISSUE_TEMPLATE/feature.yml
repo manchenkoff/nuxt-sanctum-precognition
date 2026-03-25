@@ -37,5 +37,5 @@ body:
         Check this box if you are happy to implement this yourself
         once we have a plan
       options:
-        - label: Yes
+        - label: "Yes"
           required: false
