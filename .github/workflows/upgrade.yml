@@ -1,0 +1,108 @@
+name: Upgrade Dependencies
+env:
+  node_version: 24
+  git_email: artem@manchenkoff.me
+  git_name: manchenkoff
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * 0"
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    outputs:
+      projects: ${{ steps.discover.outputs.projects }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Discover projects
+        id: discover
+        run: |
+          PROJECTS=$(find . -maxdepth 2 -name "package.json" -not -path "*/node_modules/*" -exec dirname {} \; | sort | jq -R . | jq -s .)
+          echo "projects=$PROJECTS" >> $GITHUB_OUTPUT
+  upgrade-deps:
+    needs: discover
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.node_version }}
+      - name: Enable corepack
+        run: corepack enable
+      - name: Upgrade each project
+        run: |
+          echo '${{ needs.discover.outputs.projects }}' | jq -r '.[]' | while read -r project; do
+            cd "$project"
+            npx nypm@latest i
+            pnpm self-update || true
+            npx nuxt upgrade --dedupe || true
+            pnpm up
+            cd - > /dev/null
+          done
+      - name: Check for changes
+        id: changed
+        run: |
+          echo "DATE=$(date +%Y-%m-%d)" >> $GITHUB_ENV
+          if git diff --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+      - name: Get available scripts for each project
+        if: steps.changed.outputs.changed == 'true'
+        id: scripts
+        run: |
+          echo '${{ needs.discover.outputs.projects }}' | jq -r '.[]' | while read -r project; do
+            if [ -f "$project/package.json" ]; then
+              SCRIPTS=$(jq -r '.scripts // {} | keys | join(",")' "$project/package.json")
+              echo "$project:$SCRIPTS" >> $GITHUB_OUTPUT
+            fi
+          done
+      - name: Validate projects
+        if: steps.changed.outputs.changed == 'true'
+        run: |
+          echo '${{ needs.discover.outputs.projects }}' | jq -r '.[]' | while read -r project; do
+            if [ -f "$project/package.json" ]; then
+              SCRIPTS=$(jq -r '.scripts // {} | keys | join(",")' "$project/package.json")
+              if echo "$SCRIPTS" | grep -q "validate"; then
+                cd "$project"
+                pnpm validate
+                cd - > /dev/null
+              fi
+            fi
+          done
+      - name: Configure git
+        if: steps.changed.outputs.changed == 'true'
+        run: |
+          git config --global user.email "${{ env.git_email }}"
+          git config --global user.name "${{ env.git_name }}"
+      - name: Create branch and commit
+        if: steps.changed.outputs.changed == 'true'
+        run: |
+          BRANCH="deps/bump-${DATE}"
+          git checkout -b "$BRANCH"
+          git add -A
+          git commit -m "chore: upgrade dependencies"
+      - name: Push changes
+        if: steps.changed.outputs.changed == 'true'
+        run: git push -u origin HEAD
+      - name: Create Pull Request
+        if: steps.changed.outputs.changed == 'true'
+        run: |
+          gh pr create \
+            --base main \
+            --head deps/bump-${DATE} \
+            --title "deps: weekly dependency bump" \
+            --body "Automated dependency upgrade. Please review before merging." \
+            --assignee manchenkoff
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
