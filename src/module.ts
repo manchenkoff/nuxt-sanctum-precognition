@@ -5,7 +5,7 @@ import { defaultModuleOptions } from './config'
 
 const MODULE_NAME = 'nuxt-sanctum-precognition'
 
-export type ModulePublicRuntimeConfig = { precognition: ModuleOptions }
+export type ModulePublicRuntimeConfig = { precognition: Partial<ModuleOptions> }
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -15,7 +15,7 @@ export default defineNuxtModule<ModuleOptions>({
 
   moduleDependencies: {
     'nuxt-auth-sanctum': {
-      version: '>=1.3.0',
+      version: '>=3.0.0',
     },
   },
 
@@ -23,6 +23,7 @@ export default defineNuxtModule<ModuleOptions>({
 
   setup(_options, _nuxt) {
     const resolver = createResolver(import.meta.url)
+
     const precognitionConfig = defu(
       _nuxt.options.runtimeConfig.public.precognition,
       _options,

@@ -1,6 +1,11 @@
 {
   "name": "nuxt-sanctum-precognition",
   "version": "0.0.16",
+  "author": {
+    "name": "Artem Manchenkov",
+    "email": "artem@manchenkoff.me",
+    "url": "https://github.com/manchenkoff"
+  },
   "description": "Nuxt module for Laravel Precognition integration",
   "homepage": "https://precognition.manchenkoff.me",
   "repository": "manchenkoff/nuxt-sanctum-precognition",
@@ -41,8 +46,9 @@
   "dependencies": {
     "defu": "^6.1.7",
     "lodash-es": "^4.18.1",
-    "nuxt-auth-sanctum": "^2.3.4",
-    "object-form-encoder": "^0.0.6"
+    "nuxt-auth-sanctum": "^3.0.0",
+    "object-form-encoder": "^0.0.6",
+    "ofetch": "^1.5.1"
   },
   "devDependencies": {
     "@nuxt/devtools": "^3.2.4",
@@ -50,19 +56,21 @@
     "@nuxt/kit": "^4.4.4",
     "@nuxt/module-builder": "^1.0.2",
     "@nuxt/schema": "^4.4.4",
-    "@nuxt/test-utils": "^3.23.0",
+    "@nuxt/test-utils": "^4.0.3",
     "@nuxt/ui": "^4.7.1",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^25.6.2",
+    "@vue/test-utils": "^2.4.10",
     "changelogen": "^0.6.2",
     "eslint": "^10.3.0",
+    "happy-dom": "^20.9.0",
     "nuxt": "^4.4.4",
     "typescript": "^5.9.3",
-    "vitest": "^3.2.4",
+    "vitest": "^4.1.6",
     "vue": "^3.5.34",
     "vue-tsc": "^3.2.8"
   },
-  "packageManager": "pnpm@10.32.1",
+  "packageManager": "pnpm@11.1.0",
   "pnpm": {
     "onlyBuiltDependencies": [
       "@parcel/watcher",
