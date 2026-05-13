@@ -1,5 +1,5 @@
 import type { ModuleOptions } from '../types'
-import { useNuxtApp } from '#imports'
+import { useNuxtApp } from '#app'
 
 /**
  * Returns the Precognition runtime module configuration.

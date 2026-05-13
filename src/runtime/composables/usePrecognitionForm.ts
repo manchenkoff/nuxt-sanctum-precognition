@@ -21,7 +21,8 @@ import {
   STATUS_VALIDATION_ERROR,
 } from '../utils/constants'
 import { clearFiles, hasFiles } from '../utils/files'
-import { useSanctumClient } from '#imports'
+import type { $Fetch } from 'ofetch'
+import { useNuxtApp } from '#app'
 
 type FormProcessParams<T extends Payload> = {
   precognitive: boolean
@@ -51,7 +52,7 @@ export const usePrecognitionForm = <T extends Payload>(
   const _touched = ref<PayloadKey<T>[]>([]) as Ref<PayloadKey<T>[]>
 
   const _config = usePrecognitionConfig()
-  const _client = useSanctumClient()
+  const _client = useNuxtApp().$sanctumClient as $Fetch
 
   async function process(params: FormProcessParams<T> = {
     precognitive: false,
@@ -98,7 +99,11 @@ export const usePrecognitionForm = <T extends Payload>(
     })
 
     if (params.precognitive) {
-      if (response.headers.get(PRECOGNITION_HEADER) !== 'true') {
+      if (
+        response.status >= 400
+        && response.status < 500
+        && response.headers.get(PRECOGNITION_HEADER) !== 'true'
+      ) {
         console.warn('Did not receive a Precognition response. Ensure you have the Precognition middleware in place for the route.')
       }
 
