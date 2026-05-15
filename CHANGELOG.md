@@ -1,6 +1,37 @@
 # Changelog
 
 
+## v1.0.0
+
+[compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.16...v0.1.0)
+
+### 🩹 Fixes
+
+- Updated issue template format ([38bfe52](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/38bfe52))
+
+### 🏡 Chore
+
+- Updated issue templates ([516800c](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/516800c))
+- Added action for deps bump ([e1162db](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/e1162db))
+- Adjusted bump action ([167b91f](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/167b91f))
+- Adjusted bump action ([6f01e28](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/6f01e28))
+- Use proper matrix for upgrade ([2ab8f30](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/2ab8f30))
+- Simplified bump action ([3f711b1](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/3f711b1))
+- Drop stale branches ([f26f625](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/f26f625))
+- **docs:** Rename og-image and installed deps ([807b402](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/807b402))
+- Upgraded nuxt and content setup ([bab9005](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/bab9005))
+- **ci:** Upgraded action versions ([b8d65e9](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/b8d65e9))
+- **deps:** ⚠️  Upgraded module deps and min version for sanctum ([87cec90](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/87cec90))
+- **test:** Full module unit test coverage ([c412810](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/c412810))
+
+#### ⚠️ Breaking Changes
+
+- **deps:** ⚠️  Upgraded module deps and min version for sanctum ([87cec90](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/87cec90))
+
+### ❤️ Contributors
+
+- Manchenkoff ([@manchenkoff](https://github.com/manchenkoff))
+
 ## v0.0.16
 
 [compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.15...v0.0.16)
