@@ -9,9 +9,9 @@
     "upgrade": "pnpm self-update && npx nuxt upgrade --dedupe && pnpm up"
   },
   "dependencies": {
-    "@nuxt/ui": "^4.8.0",
+    "@nuxt/ui": "^4.8.1",
     "nuxt": "latest",
     "tailwindcss": "^4.3.0",
-    "vue": "^3.5.34"
+    "vue": "^3.5.35"
   }
 }
