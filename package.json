@@ -46,7 +46,7 @@
   "dependencies": {
     "defu": "^6.1.7",
     "lodash-es": "^4.18.1",
-    "nuxt-auth-sanctum": "^3.0.0",
+    "nuxt-auth-sanctum": "^3.1.0",
     "object-form-encoder": "^0.0.6",
     "ofetch": "^1.5.1"
   },
@@ -57,18 +57,18 @@
     "@nuxt/module-builder": "^1.0.2",
     "@nuxt/schema": "^4.4.8",
     "@nuxt/test-utils": "^4.0.3",
-    "@nuxt/ui": "^4.8.2",
+    "@nuxt/ui": "^4.9.0",
     "@types/lodash-es": "^4.17.12",
-    "@types/node": "^25.9.3",
+    "@types/node": "^25.9.4",
     "@vue/test-utils": "^2.4.11",
     "changelogen": "^0.6.2",
     "eslint": "^10.5.0",
-    "happy-dom": "^20.10.3",
+    "happy-dom": "^20.10.6",
     "nuxt": "^4.4.8",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.8",
+    "vitest": "^4.1.9",
     "vue": "^3.5.38",
-    "vue-tsc": "^3.3.4"
+    "vue-tsc": "^3.3.5"
   },
   "packageManager": "pnpm@11.1.0",
   "pnpm": {
