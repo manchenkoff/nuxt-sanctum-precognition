@@ -73,9 +73,7 @@ async function submit() {
       >
         Error: {{ form.errors.name }}
       </div>
-      <UButton
-        @click="form.reset('name')"
-      >
+      <UButton @click="() => { form.reset('name') }">
         Clear value
       </UButton>
       <span>Touched: {{ form.touched('email') }}</span>
@@ -97,9 +95,7 @@ async function submit() {
       >
         Error: {{ form.errors.email }}
       </div>
-      <UButton
-        @click="form.reset('email')"
-      >
+      <UButton @click="() => { form.reset('email') }">
         Clear value
       </UButton>
       <span>Touched: {{ form.touched('email') }}</span>
@@ -122,9 +118,7 @@ async function submit() {
       >
         Error: {{ form.errors.password }}
       </div>
-      <UButton
-        @click="form.reset('password')"
-      >
+      <UButton @click="() => { form.reset('password') }">
         Clear value
       </UButton>
       <span>Touched: {{ form.touched('password') }}</span>
@@ -147,9 +141,7 @@ async function submit() {
       >
         Error: {{ form.errors.password_confirmation }}
       </div>
-      <UButton
-        @click="form.reset('password_confirmation')"
-      >
+      <UButton @click="() => { form.reset('password_confirmation') }">
         Clear value
       </UButton>
       <span>Touched: {{ form.touched('password_confirmation') }}</span>
@@ -171,7 +163,7 @@ async function submit() {
       </UButton>
       <UButton
         :disabled="form.validating"
-        @click="form.validate(['email', 'password'])"
+        @click="() => { form.validate(['email', 'password']) }"
       >
         Validate Explicit
       </UButton>
@@ -225,5 +217,4 @@ async function submit() {
   </div>
 </template>
 
-<style>
-</style>
+<style></style>
