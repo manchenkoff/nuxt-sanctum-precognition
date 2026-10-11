@@ -1,6 +1,25 @@
 # Changelog
 
 
+## v1.0.1
+
+[compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v1.0.0...v1.0.1)
+
+### 🏡 Chore
+
+- **deps-dev:** Bump nuxt from 4.4.5 to 4.4.6 in the npm_and_yarn group across 1 directory ([#197](https://github.com/manchenkoff/nuxt-sanctum-precognition/pull/197))
+- **deps-dev:** Bump vitest from 4.1.7 to 4.1.8 ([#207](https://github.com/manchenkoff/nuxt-sanctum-precognition/pull/207))
+- **deps-dev:** Bump vue-tsc from 3.3.2 to 3.3.3 ([#208](https://github.com/manchenkoff/nuxt-sanctum-precognition/pull/208))
+- **deps-dev:** Bump @types/node from 25.9.4 to 26.0.1 ([#221](https://github.com/manchenkoff/nuxt-sanctum-precognition/pull/221))
+- **deps-dev:** Bump vue-tsc from 3.3.5 to 3.3.6 ([#222](https://github.com/manchenkoff/nuxt-sanctum-precognition/pull/222))
+- Fixed docs pipeline ([136726b](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/136726b))
+- **deps-dev:** Bump vitest from 4.1.11 to 5.0.2 ([#269](https://github.com/manchenkoff/nuxt-sanctum-precognition/pull/269))
+- Upgraded deps ([117f0b9](https://github.com/manchenkoff/nuxt-sanctum-precognition/commit/117f0b9))
+
+### ❤️ Contributors
+
+- Manchenkoff ([@manchenkoff](https://github.com/manchenkoff))
+
 ## v1.0.0
 
 [compare changes](https://github.com/manchenkoff/nuxt-sanctum-precognition/compare/v0.0.16...v0.1.0)
